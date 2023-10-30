@@ -1,0 +1,24 @@
+{
+    "name": "joaomarcelogomes/secret-manager",
+    "require-dev": {
+        "phpunit/phpunit": "^10.4",
+        "phpstan/phpstan": "^1.10"
+    },
+    "authors": [
+        {
+            "name": "João Marcelo Gomes",
+            "email": "joaomarcelosgomes@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "SecretManager\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "prs-4": {
+          "Tests\\": "tests/"
+      }
+    },
+    "require": {}
+}
