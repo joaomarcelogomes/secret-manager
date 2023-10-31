@@ -9,7 +9,6 @@ use Stringable;
 
 class Username implements Stringable
 {
-
   public readonly string $username;
 
   public function __construct(string $username)
