@@ -8,6 +8,6 @@ use SecretManager\Domain\ValueObject\EncryptedSecret;
 
 interface SecretEncryptionInterface
 {
-  public function encrypt(string $value): EncryptedSecret;
-  public function decrypt(EncryptedSecret $encryptedSecret): string;
+  public function encrypt(string $value, string $password): EncryptedSecret;
+  public function decrypt(EncryptedSecret $encryptedSecret, string $password): string;
 }
