@@ -33,4 +33,14 @@ class SecretEncryptionTest extends TestCase
 
     $this->assertSame($testSecret, $this->encryption->decrypt($encryptedData, $password));
   }
+
+  public function testDecryptionFailsWithWrongPassword(): void
+  {
+    $testSecret = "Test Message";
+    $password = "123456";
+    $encryptedData = $this->encryption->encrypt($testSecret, $password);
+
+    $wrongPassword = "654321";
+    $this->assertNotSame($testSecret, $this->encryption->decrypt($encryptedData, $wrongPassword));
+  }
 }
