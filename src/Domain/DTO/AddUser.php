@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SecretManager\Domain\DTO;
 
-use SecretManager\Domain\VO\{Username, Password};
+use SecretManager\Domain\ValueObject\{Username, Password};
 
 class AddUser
 {
