@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
-use SecretManager\Domain\DTO\AddUser as AddUserDTO;
+namespace SecretManager\Domain\Repository;
+
+use SecretManager\Domain\ValueObject\HashedPassword;
+use SecretManager\Domain\ValueObject\Username;
 
 interface UserCommandRepositoryInterface
 {
-  public function add(AddUserDTO $userDTO): void;
+  public function add(Username $username, HashedPassword $hashedPassword): void;
 }
