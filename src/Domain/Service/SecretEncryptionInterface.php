@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SecretManager\Domain\UseCase;
+namespace SecretManager\Domain\Service;
 
-use SecretManager\Domain\Entity\EncryptedSecret;
+use SecretManager\Domain\ValueObject\EncryptedSecret;
 
 interface SecretEncryptionInterface
 {

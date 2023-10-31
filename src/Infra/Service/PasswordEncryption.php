@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SecretManager\Infra\UseCase;
+namespace SecretManager\Infra\Service;
 
-use SecretManager\Domain\UseCase\PasswordEncryptionInterface;
+use SecretManager\Domain\Service\PasswordEncryptionInterface;
 
-class Argon2PasswordEncryption implements PasswordEncryptionInterface
+class PasswordEncryption implements PasswordEncryptionInterface
 {
   public function encrypt(string $password): string
   {

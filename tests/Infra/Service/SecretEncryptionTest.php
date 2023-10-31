@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Tests\Infra\UseCase;
+namespace Tests\Infra\Service;
 
 use PHPUnit\Framework\TestCase;
-use SecretManager\Domain\UseCase\SecretEncryptionInterface;
-use SecretManager\Domain\Entity\EncryptedData;
-use SecretManager\Infra\UseCase\ChaCha20SecretEncryption;
+use SecretManager\Domain\Service\SecretEncryptionInterface;
+use SecretManager\Domain\ValueObject\EncryptedSecret;
+use SecretManager\Infra\Service\SecretEncryption;
 
-class ChaCha20SecretEncryptionTest extends TestCase
+class SecretEncryptionTest extends TestCase
 {
   private SecretEncryptionInterface $encryption;
 
   public function setUp(): void
   {
-    $this->encryption = new ChaCha20SecretEncryption;
+    $this->encryption = new SecretEncryption;
     parent::setUp();
   }
 
   public function testEncryption(): void
   {
-    $this->assertInstanceOf(EncryptedData::class, $this->encryption->encrypt('test'));
+    $this->assertInstanceOf(EncryptedSecret::class, $this->encryption->encrypt('test'));
   }
 
   public function testDecryption(): void

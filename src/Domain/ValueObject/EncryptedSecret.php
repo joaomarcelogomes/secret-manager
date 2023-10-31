@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SecretManager\Domain\Entity;
+namespace SecretManager\Domain\ValueObject;
 
 readonly class EncryptedSecret
 {
   public function __construct(
-    public string $cipherText,
+    public string $data,
     public string $key
   )
   {}

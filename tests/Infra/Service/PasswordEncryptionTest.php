@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Tests\Infra\UseCase;
+namespace Tests\Infra\Service;
 
 use PHPUnit\Framework\TestCase;
-use SecretManager\Domain\UseCase\PasswordEncryptionInterface;
-use SecretManager\Infra\UseCase\Argon2PasswordEncryption;
+use SecretManager\Domain\Service\PasswordEncryptionInterface;
+use SecretManager\Infra\Service\PasswordEncryption;
 
-class Argon2PasswordEncryptionTest extends TestCase
+class PasswordEncryptionTest extends TestCase
 {
   private PasswordEncryptionInterface $encryption;
 
   public function setUp(): void
   {
-    $this->encryption = new Argon2PasswordEncryption;
+    $this->encryption = new PasswordEncryption;
     parent::setUp();
   }
 
