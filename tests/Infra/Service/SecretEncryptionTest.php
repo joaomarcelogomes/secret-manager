@@ -21,14 +21,16 @@ class SecretEncryptionTest extends TestCase
 
   public function testEncryption(): void
   {
-    $this->assertInstanceOf(EncryptedSecret::class, $this->encryption->encrypt('test'));
+    $password = "123456";
+    $this->assertInstanceOf(EncryptedSecret::class, $this->encryption->encrypt('test', $password));
   }
 
   public function testDecryption(): void
   {
-    $testMessage = "Test Message";
-    $encryptedData = $this->encryption->encrypt($testMessage);
+    $testSecret = "Test Message";
+    $password = "123456";
+    $encryptedData = $this->encryption->encrypt($testSecret, $password);
 
-    $this->assertSame($testMessage, $this->encryption->decrypt($encryptedData));
+    $this->assertSame($testSecret, $this->encryption->decrypt($encryptedData, $password));
   }
 }
