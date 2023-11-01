@@ -18,7 +18,7 @@ use SecretManager\Infra\{
   Service\PasswordHashing
 };
 
-class CreateController extends CommandController
+class AddController extends CommandController
 {
   public function handle(): void
   {
