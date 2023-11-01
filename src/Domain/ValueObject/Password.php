@@ -11,9 +11,15 @@ use Stringable;
 class Password implements Stringable
 {
   public readonly string $password;
+  private static bool $validate = true;
 
   public function __construct(string $password)
   {
+    if (!self::$validate) {
+      $this->password = $password;
+      return;
+    }
+
     if (strlen($password) === 0) {
       throw new DomainException('InvalidPasswordSize');
     }
@@ -61,5 +67,14 @@ class Password implements Stringable
     }
 
     return $passwordStrength;
+  }
+
+  public static function withoutValidation(string $password): Password
+  {
+    self::$validate = false;
+    $password = new Password($password);;
+    self::$validate = true;
+
+    return $password;
   }
 }
