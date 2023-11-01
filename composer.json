@@ -20,5 +20,7 @@
           "Tests\\": "tests/"
       }
     },
-    "require": {}
+    "require": {
+        "minicli/minicli": "^4.2"
+    }
 }
