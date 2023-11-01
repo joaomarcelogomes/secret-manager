@@ -16,7 +16,7 @@ class UserCommandRepository implements UserCommandRepositoryInterface
 
   public function add(Username $username, HashedPassword $hashedPassword): void
   {
-    $query = "INSERT IGNORE INTO `user` ('user', 'password') VALUES (:username, :password)";
+    $query = "INSERT IGNORE INTO `user` (`username`, `password`) VALUES (:username, :password)";
     $stmt = $this->conn->prepare($query);
 
     $stmt->execute([
