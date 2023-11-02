@@ -9,6 +9,7 @@ use SecretManager\Domain\{
   UseCase\AddSecret as AddSecretUseCase,
   DTO\AddSecret as AddSecretDTO,
 };
+use SecretManager\Domain\ValueObject\Hash;
 use SecretManager\Domain\ValueObject\SecretValue;
 use SecretManager\Domain\ValueObject\TerminalUser;
 use SecretManager\Infra\Provider\PDOSession;
@@ -20,8 +21,8 @@ class AddController extends CommandController
 {
   public function handle(): void
   {
-    $input = new Input('Name: ');
-    $secretName = $input->read();
+    $input = new Input('Hash: ');
+    $secretHash = $input->read();
 
     $input = new Input('Secret: ');
     $secret = $input->read();
@@ -32,7 +33,7 @@ class AddController extends CommandController
 
     $addSecretDTO = new AddSecretDTO(
       $session->userId,
-      $secretName,
+      new Hash($secretHash),
       new SecretValue($secret)
     );
 

@@ -15,11 +15,11 @@ class SecretCommandRepository implements SecretCommandRepositoryInterface
 
   public function add(AddSecret $addSecretDTO): void
   {
-    $query = "INSERT IGNORE INTO `secret` (`name`, `user_id`, `secret`, `key`) VALUES (:name, :userId, :secret, :key)";
+    $query = "INSERT IGNORE INTO `secret` (`hash`, `user_id`, `secret`, `key`) VALUES (:hash, :userId, :secret, :key)";
     $stmt = $this->conn->prepare($query);
 
     $stmt->execute([
-      'name' => $addSecretDTO->name,
+      'hash' => $addSecretDTO->hash,
       'userId' => $addSecretDTO->userId,
       'secret' => $addSecretDTO->encryptedSecret->data,
       'key' => $addSecretDTO->encryptedSecret->key
