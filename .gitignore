@@ -2,3 +2,4 @@
 .phpunit.*
 phpunit.xml.bak
 .env
+*.log
