@@ -11,7 +11,8 @@ class AddSecret
 {
   public function __construct(
     public int $userId,
-    public SecretValue $secretValue,
-    public ?EncryptedSecret $encryptedSecret
+    public string $name,
+    public SecretValue $secret,
+    public ?EncryptedSecret $encryptedSecret = null
   ) {}
 }

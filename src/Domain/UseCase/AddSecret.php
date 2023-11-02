@@ -7,18 +7,22 @@ namespace SecretManager\Domain\UseCase;
 use DomainException;
 use SecretManager\Domain\DTO\AddSecret as AddSecretDTO;
 use SecretManager\Domain\Repository\SecretCommandRepositoryInterface;
+use SecretManager\Domain\Service\SecretEncryptionInterface;
 
 class AddSecret
 {
   public function __construct(
-    public SecretEncryptionInterface $encryptionInterface,
     public SecretCommandRepositoryInterface $commandRepositoryInterface,
+    public SecretEncryptionInterface $encryptionInterface,
   )
   {}
 
   public function act(AddSecretDTO $addSecretDTO)
   {
-    $addSecretDTO->encryptedSecret = $this->encryptionInterface->encrypt((string) $addSecretDTO->secretValue);
+    $addSecretDTO->encryptedSecret = $this->encryptionInterface->encrypt(
+      (string) $addSecretDTO->secret,
+      (string) $addSecretDTO->userId
+    );
 
     try {
       $this->commandRepositoryInterface->add($addSecretDTO);
