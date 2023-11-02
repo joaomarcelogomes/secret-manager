@@ -11,7 +11,7 @@ use SecretManager\Domain\{
   ValueObject\Username,
   ValueObject\Password
 };
-
+use SecretManager\Domain\ValueObject\TerminalUser;
 use SecretManager\Infra\{
   Provider\PDOSession,
   Service\PasswordHashing
@@ -32,7 +32,8 @@ class LoginController extends CommandController
   
       $createSessionDTO = new CreateSessionDTO(
         new Username($username),
-        Password::withoutValidation($password)
+        Password::withoutValidation($password),
+        new TerminalUser(trim(shell_exec('whoami')))
       );
   
       $pdoConn = PDOSession::getConnection();
@@ -45,7 +46,7 @@ class LoginController extends CommandController
       $createSessionUseCase->act($createSessionDTO);
       $this->display("Successfully logged! Your session expires in 10 minutes");
     } catch (\Throwable $th) {
-      $this->error("Invalid username or password!");
+      $this->error($th->getMessage());
     }
   }
 }

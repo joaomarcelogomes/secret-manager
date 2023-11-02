@@ -27,7 +27,7 @@ class CreateSession
     }
 
     try {
-      $this->commandRepositoryInterface->add($user);
+      $this->commandRepositoryInterface->add($user, $createSessionDTO->terminalUser);
     } catch (\Throwable $th) {
       \error_log($th->getMessage());
       throw new DomainException('AddUserInternalError');
