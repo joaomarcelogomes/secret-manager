@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SecretManager\Domain\Entity;
 
 use SecretManager\Domain\ValueObject\EncryptedSecret;
-use SecretManager\Domain\ValueObject\Hash;
+use SecretManager\Domain\ValueObject\Secret\Hash;
 
 readonly class Secret
 {

@@ -7,7 +7,7 @@ use Minicli\Command\CommandController;
 use SecretManager\Domain\{
   UseCase\ShowSecret as ShowSecretUseCase,
 };
-use SecretManager\Domain\ValueObject\Hash;
+use SecretManager\Domain\ValueObject\Secret\Hash;
 use SecretManager\Domain\ValueObject\TerminalUser;
 use SecretManager\Infra\Provider\PDOSession;
 use SecretManager\Infra\Repository\SecretQueryRepository;

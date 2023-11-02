@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SecretManager\Domain\ValueObject;
+namespace SecretManager\Domain\ValueObject\Secret;
 
 use DomainException;
 use Stringable;

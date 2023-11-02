@@ -9,8 +9,8 @@ use SecretManager\Domain\{
   UseCase\AddSecret as AddSecretUseCase,
   DTO\AddSecret as AddSecretDTO,
 };
-use SecretManager\Domain\ValueObject\Hash;
-use SecretManager\Domain\ValueObject\SecretValue;
+use SecretManager\Domain\ValueObject\Secret\Hash;
+use SecretManager\Domain\ValueObject\Secret\Value;
 use SecretManager\Domain\ValueObject\TerminalUser;
 use SecretManager\Infra\Provider\PDOSession;
 use SecretManager\Infra\Repository\SecretCommandRepository;
@@ -34,7 +34,7 @@ class AddController extends CommandController
     $addSecretDTO = new AddSecretDTO(
       $session->userId,
       new Hash($secretHash),
-      new SecretValue($secret)
+      new Value($secret)
     );
 
     $addSecretUseCase = new AddSecretUseCase(

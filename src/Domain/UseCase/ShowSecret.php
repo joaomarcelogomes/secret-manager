@@ -7,7 +7,7 @@ namespace SecretManager\Domain\UseCase;
 use DomainException;
 use SecretManager\Domain\Repository\SecretQueryRepositoryInterface;
 use SecretManager\Domain\Service\SecretEncryptionInterface;
-use SecretManager\Domain\ValueObject\Hash;
+use SecretManager\Domain\ValueObject\Secret\Hash;
 
 class ShowSecret
 {

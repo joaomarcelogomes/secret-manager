@@ -7,7 +7,7 @@ namespace SecretManager\Infra\Repository;
 use PDO;
 use SecretManager\Domain\Entity\User;
 use SecretManager\Domain\Repository\UserQueryRepositoryInterface;
-use SecretManager\Domain\ValueObject\HashedPassword;
+use SecretManager\Domain\ValueObject\Secret\HashedPassword;
 use SecretManager\Domain\ValueObject\Username;
 
 class UserQueryRepository implements UserQueryRepositoryInterface

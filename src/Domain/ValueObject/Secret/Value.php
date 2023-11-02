@@ -7,7 +7,7 @@ namespace SecretManager\Domain\ValueObject;
 use DomainException;
 use Stringable;
 
-class SecretValue implements Stringable
+class Value implements Stringable
 {
   public readonly string $secretValue;
 

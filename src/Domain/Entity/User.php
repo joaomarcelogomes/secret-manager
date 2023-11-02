@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SecretManager\Domain\Entity;
 
-use SecretManager\Domain\ValueObject\HashedPassword;
+use SecretManager\Domain\ValueObject\Secret\HashedPassword;
 use SecretManager\Domain\ValueObject\Username;
 
 readonly class User

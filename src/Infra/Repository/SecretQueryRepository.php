@@ -9,7 +9,7 @@ use PDO;
 use SecretManager\Domain\Entity\Secret;
 use SecretManager\Domain\Repository\SecretQueryRepositoryInterface;
 use SecretManager\Domain\ValueObject\EncryptedSecret;
-use SecretManager\Domain\ValueObject\Hash;
+use SecretManager\Domain\ValueObject\Secret\Hash;
 use SecretManager\Domain\ValueObject\TerminalUser;
 
 class SecretQueryRepository implements SecretQueryRepositoryInterface
